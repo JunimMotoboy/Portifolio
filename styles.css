@@ -8,7 +8,8 @@ html {
   scroll-behavior: smooth;
 }
 
-body, html {
+body,
+html {
   height: 100%;
   overflow: hidden;
 }
@@ -18,7 +19,6 @@ body, html {
   overflow-y: scroll;
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
-  
 }
 
 .section {
@@ -39,12 +39,13 @@ body, html {
 }
 
 /* texto e ícones */
-.txt-hero p, .txt-hero h1 {
+.txt-hero p,
+.txt-hero h1 {
   color: white;
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 
 p {
@@ -72,8 +73,8 @@ p {
   color: white;
   text-align: center;
 }
-.card-body{
-    background-color: #6c757d;
+.card-body {
+  background-color: #6c757d;
 }
 .card-skils {
   display: flex;
@@ -92,4 +93,30 @@ p {
 .card-body img {
   width: 50px;
   margin-bottom: 10px;
+}
+.section-projects {
+  padding: 80px 20px;
+  background-color: #212529;
+}
+h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+}
+
+.card-projects {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.card-projects .card {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.card-projects .card:hover {
+  transform: translateY(-5px);
 }
