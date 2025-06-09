@@ -1,0 +1,43 @@
+*{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+
+.icon-hero{
+  font-size: 24px;
+ background-color: transparent;
+}
+body{
+    background-color: black;
+}
+h1{
+    color: #fff;
+    font-weight: 700;
+    font-size: 40px;
+} 
+p{
+    color: #fff;
+    font-size: 18px;
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-hero img{
+    width: 30px;
+    height: 30px;
+    transition: 0.1s ease-in-out;
+}
+.icon-hero img:hover{
+    transform: scale(1.1);
+}
+.icon-hero {
+    text-align: center;
+    padding: 10px;
+}
