@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 /* geral */
 * {
   margin: 0;
@@ -6,12 +7,23 @@
 }
 html {
   scroll-behavior: smooth;
+  overflow: scroll;
+  overflow-x: hidden;
 }
-
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff0000;
+}
 body,
 html {
   height: 100%;
   overflow: hidden;
+  background-color: #000000;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
 }
 
 .wrapper {
@@ -20,17 +32,18 @@ html {
   scroll-behavior: smooth;
   scroll-snap-type: y mandatory;
 }
-
+section {
+  height: 100vh;
+  scroll-snap-align: start;
+}
 .section {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #212529;
   flex-direction: column;
 }
 .section-skils {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,21 +53,28 @@ html {
 .txt-hero {
   text-align: center;
   margin-bottom: 20px;
-}.dev p{
-  animation: instaColor 3s ease-in-out forwards,
-    slideIn 1s ease-in-out forwards;
+}
+span {
+  animation: instaColor 1.5s forwards;
+  -webkit-background-clip: text;
+  color: transparent;
 }
 .txt-hero p,
 .txt-hero h1 {
   color: white;
-}   
+}
 
 h1 {
-  font-size: 2.5rem;
+  font-size: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
 }
 
 p {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 500;
+  height: 20px;
+  font-family: "Poppins", sans-serif;
 }
 
 .icon-hero {
@@ -62,103 +82,62 @@ p {
   padding: 10px;
   text-align: center;
 }
-.icon p{
+.icon p {
   visibility: hidden;
 }
-.icon:hover p{
+.icon:hover p {
   cursor: pointer;
   visibility: visible;
-  animation: fade 2s ease-in-out,
-    chegada 1s ease-in-out forwards;
+  animation: fade 2s ease-in-out, chegada 1s ease-in-out forwards;
 }
 .icon:hover img {
   transform: scale(1.2);
 }
-@keyframes fade {
-  0% {
 
-    opacity: 0;
-  }
-  50% {
-
-    opacity: 0.2;
-  };
-  100% {
-
-    opacity: 1;
-  }
-}
-@keyframes slideIn {
-  0% {
-    transform: translateY(-20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes chegada{
-  0% {
-    transform: translateX(-20px);
-    opacity: 0;
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-@keyframes instaColor {
-  0% {
-    opacity: 0;
-    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-  100% {
-    opacity: 1;
-    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
-    -webkit-background-clip: text;
-    color: transparent;
-  }
-}
 .icon-hero img {
   width: 30px;
   height: 30px;
   margin: 0 5px;
   transition: transform 0.1s ease-in-out;
+  animation: pulsar 6s infinite;
 }
-.gitHub img{
-  transition:0.5s ease-in;
+.gitHub img {
+  transition: 0.5s ease-in;
 }
-.gitHub img:hover{
-content: url(/imgs/github.png);
+.gitHub img:hover {
+  content: url(/imgs/github.png);
+  border: 1px solid #fff;
+  border-radius: 50%;
+  background-color: #fff;
 }
-.instagram img{
-  transition:0.5s ease-in;
+.instagram img {
+  transition: 0.5s ease-in;
 }
-.instagram img:hover{
-content: url(/imgs/instagram.png);
+.instagram img:hover {
+  content: url(/imgs/instagram.png);
 }
-.linkedin img{
-  transition:0.5s ease-in;
+.linkedin img {
+  transition: 0.5s ease-in;
 }
-.linkedin img:hover{
-content: url(/imgs/linkedin.png);
+.linkedin img:hover {
+  content: url(/imgs/linkedin.png);
 }
-.whatsapp img{
-  transition:0.5s ease-in;
+.whatsapp img {
+  transition: 0.5s ease-in;
 }
-.whatsapp img:hover{
-content: url(/imgs/whatsapp.png);
+.whatsapp img:hover {
+  content: url(/imgs/whatsapp.png);
 }
-/* próxima seção só como exemplo */
+.section-skills {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .content {
-  color: white;
   text-align: center;
 }
 .card-body {
-  background-color: #6c757d;
+  background-color: #2d6a4f;
 }
 .card-skils {
   display: flex;
@@ -180,7 +159,6 @@ content: url(/imgs/whatsapp.png);
 }
 .section-projects {
   padding: 80px 20px;
-  background-color: #212529;
 }
 h2 {
   text-align: center;
@@ -203,4 +181,59 @@ h2 {
 
 .card-projects .card:hover {
   transform: translateY(-5px);
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slideIn {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes chegada {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes instaColor {
+  0% {
+    background-color: #95d5b2;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  100% {
+    opacity: 1;
+    background-color: #95d5b2;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+@keyframes pulsar {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
