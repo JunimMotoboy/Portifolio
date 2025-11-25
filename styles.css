@@ -104,37 +104,24 @@ p {
 .gitHub img:hover{
 content: url(/imgs/github.png);
 }
-.gitHub:hover p {
-  animation: gitHubColor 1s ease-in-out forwards;
-  font-weight: 700;
-}
 .instagram img{
   transition:0.5s ease-in;
 }
 .instagram img:hover{
 content: url(/imgs/instagram.png);
 }
-@keyframes gitHubColor {
-  0% {
-    opacity: 0;
-    background: linear-gradient(45deg, #000000, #434343);
-    -webkit-background-clip: text;
-    color: transparent;
-
-    -webkit-text-stroke: 0px white; /* sem contorno no início */
-  }
-  100% {
-    opacity: 1;
-    background: linear-gradient(45deg, #000000, #434343);
-    -webkit-background-clip: text;
-    color: transparent;
-
-    /* ⭐ Contorno perfeito, nítido e sem borrado */
-    -webkit-text-stroke: 0.1px white;
-  }
+.linkedin img{
+  transition:0.5s ease-in;
 }
-
-
+.linkedin img:hover{
+content: url(/imgs/linkedin.png);
+}
+.whatsapp img{
+  transition:0.5s ease-in;
+}
+.whatsapp img:hover{
+content: url(/imgs/whatsapp.png);
+}
 
 @keyframes instaColor {
   0% {
