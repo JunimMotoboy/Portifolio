@@ -37,8 +37,6 @@ html {
   background-color: #212529;
   flex-direction: column;
 }
-
-/* texto e ícones */
 .txt-hero p,
 .txt-hero h1 {
   color: white;
@@ -53,8 +51,45 @@ p {
 }
 
 .icon-hero {
+  display: flex;
   padding: 10px;
   text-align: center;
+}
+.icon p{
+  visibility: hidden;
+}
+.icon:hover p{
+  cursor: pointer;
+  visibility: visible;
+  animation: fade 2s ease-in-out,
+    chegada 1s ease-in-out forwards;
+}
+.icon:hover img {
+  transform: scale(1.2);
+}
+@keyframes fade {
+  0% {
+
+    opacity: 0;
+  }
+  50% {
+
+    opacity: 0.2;
+  };
+  100% {
+
+    opacity: 1;
+  }
+}
+@keyframes chegada{
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 .icon-hero img {
@@ -63,10 +98,61 @@ p {
   margin: 0 5px;
   transition: transform 0.1s ease-in-out;
 }
-
-.icon-hero img:hover {
-  transform: scale(1.1);
+.gitHub img{
+  transition:0.5s ease-in;
 }
+.gitHub img:hover{
+content: url(/imgs/github.png);
+}
+.gitHub:hover p {
+  animation: gitHubColor 1s ease-in-out forwards;
+  font-weight: 700;
+}
+.instagram img{
+  transition:0.5s ease-in;
+}
+.instagram img:hover{
+content: url(/imgs/instagram.png);
+}
+@keyframes gitHubColor {
+  0% {
+    opacity: 0;
+    background: linear-gradient(45deg, #000000, #434343);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    -webkit-text-stroke: 0px white; /* sem contorno no início */
+  }
+  100% {
+    opacity: 1;
+    background: linear-gradient(45deg, #000000, #434343);
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* ⭐ Contorno perfeito, nítido e sem borrado */
+    -webkit-text-stroke: 0.1px white;
+  }
+}
+
+
+
+@keyframes instaColor {
+  0% {
+    opacity: 0;
+    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+  100% {
+    opacity: 1;
+    background: linear-gradient(45deg, #F58529, #FEDA77, #DD2A7B, #8134AF, #515BD4);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+
+
 
 /* próxima seção só como exemplo */
 .content {
