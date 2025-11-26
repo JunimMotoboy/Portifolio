@@ -70,3 +70,48 @@ index = 0;
 modo = "digitando";
 atualizarHTML(palavras[0].texto, palavras[0].destaque, 0);
 timer = setTimeout(passo, 300); 
+
+// --- comportamento dos ícones de contato (acessibilidade + toque) ---
+document.addEventListener('DOMContentLoaded', () => {
+  const contactBtn = document.querySelector('.icon-hero > button[aria-controls="icons-list"]');
+  const iconsList = document.getElementById('icons-list');
+
+  if (!contactBtn || !iconsList) return;
+
+  function openIcons() {
+    contactBtn.setAttribute('aria-expanded', 'true');
+    iconsList.classList.add('open');
+    iconsList.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeIcons() {
+    contactBtn.setAttribute('aria-expanded', 'false');
+    iconsList.classList.remove('open');
+    iconsList.setAttribute('aria-hidden', 'true');
+  }
+
+  // Toggle por clique (útil para toque)
+  contactBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const expanded = contactBtn.getAttribute('aria-expanded') === 'true';
+    if (expanded) closeIcons(); else openIcons();
+  });
+
+  // Suporte a teclado (Enter / Space para alternar, Esc para fechar)
+  contactBtn.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      contactBtn.click();
+    }
+    if (e.key === 'Escape') {
+      closeIcons();
+      contactBtn.blur();
+    }
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', (e) => {
+    if (!iconsList.classList.contains('open')) return;
+    if (!e.target.closest('.icon-hero')) closeIcons();
+  });
+});
