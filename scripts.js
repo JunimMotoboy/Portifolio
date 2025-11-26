@@ -73,6 +73,7 @@ timer = setTimeout(passo, 300);
 
 // --- comportamento dos ícones de contato (acessibilidade + toque) ---
 document.addEventListener('DOMContentLoaded', () => {
+  console.log('[icons] scripts.js carregado');
   const contactBtn = document.querySelector('.icon-hero > button[aria-controls="icons-list"]');
   const iconsList = document.getElementById('icons-list');
 
@@ -82,18 +83,21 @@ document.addEventListener('DOMContentLoaded', () => {
     contactBtn.setAttribute('aria-expanded', 'true');
     iconsList.classList.add('open');
     iconsList.setAttribute('aria-hidden', 'false');
+    console.log('[icons] aberto');
   }
 
   function closeIcons() {
     contactBtn.setAttribute('aria-expanded', 'false');
     iconsList.classList.remove('open');
     iconsList.setAttribute('aria-hidden', 'true');
+    console.log('[icons] fechado');
   }
 
   // Toggle por clique (útil para toque)
   contactBtn.addEventListener('click', (e) => {
     e.stopPropagation();
     const expanded = contactBtn.getAttribute('aria-expanded') === 'true';
+    console.log('[icons] clique - expanded =', expanded);
     if (expanded) closeIcons(); else openIcons();
   });
 

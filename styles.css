@@ -131,6 +131,33 @@ p {
   pointer-events: auto;
   margin-top: 15px;
 }
+
+/* Inicialmente cada ícone fica escondido e se move um pouco —
+   quando a lista abre, aplicamos a animação slideIn com um
+   pequeno stagger para um efeito rápido e suave. */
+.icons-list .icon {
+  opacity: 0;
+  transform: translateY(6px);
+  /* Transição mais simples e confiável que funciona ao adicionar/retirar a classe .open */
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+/* Quando a lista abre, usa-se transition (fallback) em vez da animação de keyframes
+   — isso evita problemas onde a animação não dispara em alguns navegadores/condições. */
+.icons-list.open .icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+.icons-list.open .icon:nth-child(1) { transition-delay: 0s; }
+.icons-list.open .icon:nth-child(2) { transition-delay: 0.10s; }
+.icons-list.open .icon:nth-child(3) { transition-delay: 0.18s; }
+.icons-list.open .icon:nth-child(4) { transition-delay: 0.20s; }
+.icons-list.open .icon:nth-child(5) { transition-delay: 0.25s; }
+.icons-list.open .icon:nth-child(6) { transition-delay: 0.30s; }
+.icons-list.open .icon:nth-child(7) { transition-delay: 0.35s; }
+
 .icon p {
   visibility: hidden;
 }
@@ -321,7 +348,7 @@ h5{
 }
 @keyframes slideIn {
   0% {
-    transform: translateY(-20px);
+    transform: translateY(6px);
     opacity: 0;
   }
   100% {
