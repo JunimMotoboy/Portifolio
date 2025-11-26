@@ -180,7 +180,7 @@ p {
   transition: 0.5s ease-in;
 }
 .gitHub img:hover {
-  content: url(/imgs/github.png);
+  content: url(imgs/github.png);
   border: 1px solid #fff;
   border-radius: 50%;
   background-color: #fff;
@@ -189,13 +189,13 @@ p {
   transition: 0.5s ease-in;
 }
 .instagram img:hover {
-  content: url(/imgs/instagram.png);
+  content: url(imgs/instagram.png);
 }
 .linkedin img {
   transition: 0.5s ease-in;
 }
 .linkedin img:hover {
-  content: url(/imgs/linkedin.png);
+  content: url(imgs/linkedin.png);
     border: 1px solid #fff;
   border-radius: 50%;
   background-color: #fff;
@@ -204,7 +204,7 @@ p {
   transition: 0.5s ease-in;
 }
 .whatsapp img:hover {
-  content: url(/imgs/whatsapp.png);
+  content: url(imgs/whatsapp.png);
 }
 .section-skills {
   display: flex;
