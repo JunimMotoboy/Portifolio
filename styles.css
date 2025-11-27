@@ -22,7 +22,6 @@ body,
 html {
   height: 100%;
   overflow: hidden;
-  background-color: #000000;
   color: #fff;
   font-family: 'Roboto', sans-serif;
 }
@@ -36,6 +35,7 @@ html {
 section {
   height: 100vh;
   scroll-snap-align: start;
+   background-color: #000000;
 }
 .section {
   height: 100vh;
@@ -92,8 +92,10 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #212529;
   flex-direction: column;
+  /* keep palette consistent with hero: dark background + subtle green accents */
+  color: #ffffff; /* readable text */
+  background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(7,9,7,0.95) 100%);
 }
 .txt-hero {
   text-align: center;
@@ -113,9 +115,9 @@ span {
 }
 
 h1 {
-  font-size: 50px;
+  font-size: 60px;
   font-family: 'Roboto', sans-serif;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 p {
@@ -140,33 +142,35 @@ p {
   display: flex;
   gap: 8px;
   align-items: center;
-  transition: opacity 280ms ease, transform 280ms ease;
+  margin-top: 15px;
+  transition: opacity 280ms ease, transform 180ms ease;
+  transform: translateY(6px);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(6px);
   pointer-events: none;
+
 }
+.icons-list img {
+  box-sizing: border-box;
+}
+
 
 .icon-hero:hover .icons-list,
 .icon-hero:focus-within .icons-list,
 .icons-list.open {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
   pointer-events: auto;
-  margin-top: 15px;
+  transform: translateY(0);
 }
 
 .icons-list .icon {
   opacity: 0;
-  transform: translateY(6px);
-
-  transition: transform 180ms ease, opacity 180ms ease;
+  transition:opacity 180ms ease;
 }
 
 .icons-list.open .icon {
   opacity: 1;
-  transform: translateY(0);
 }
 
 .icons-list.open .icon:nth-child(1) {
@@ -191,20 +195,35 @@ p {
   transition-delay: 0.6s;
 }
 
-.icon p {
-  visibility: hidden;
+.icon {
+  position: relative; /* container for the label */
 }
+
+.icon p {
+  /* keep labels out of the document flow so they don't push icons */
+  display: block;
+  position: absolute;
+  top: 56px; /* just below the 45px icon */
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease, transform 160ms ease;
+  margin: 0;
+}
+
 .icon:hover p {
   cursor: pointer;
-  visibility: visible;
-  animation: fade 2s ease-in-out, chegada 1s ease-in-out forwards;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
 }
 
 .icon-hero img {
   width: 45px;
   height: 45px;
   margin: 0 5px;
-  transition: transform 0.1s ease-in-out;
 }
 .gitHub img {
   transition: 0.5s ease-in;
@@ -245,8 +264,10 @@ p {
   text-align: center;
 }
 .card-body {
-  background-color: #2d6a4f;
+  background-color: rgba(0, 0, 0, 0.85);
   position: relative;
+  border: 1px solid #fff;
+  border-radius: 10px;
 }
 .card-skils {
   display: grid;
@@ -259,7 +280,7 @@ p {
   max-width: 100%;
 }
 
-/* Animações de entrada das habilidades */
+
 .skill-card {
   opacity: 0;
   transition: opacity 0.6s ease, transform 0.6s ease;
@@ -307,16 +328,19 @@ p {
 }
 .section-projects {
   padding: 80px 20px;
+  /* match hero: dark background so sections feel consistent */
+  background-color: #000000;
+  color: #fff;
 }
 .btn-hero {
   background-color: #95d5b2;
   color: #000000;
   border: none;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s, color 0.3s;
+  font-size: 20px;
+  font-weight: 600;
 }
 h2 {
   text-align: center;
@@ -325,9 +349,15 @@ h2 {
   font-weight: bold;
 }
 h5 {
-  color: #000000;
+  color: #fff;
   font-weight: 700;
-  font-size: 25px;
+  font-size: 28px;
+}
+.card-text{
+  color: #fff;
+  font-size: 18px;
+  margin-top: 12px;
+  font-weight: 500;
 }
 
 .card-projects {
@@ -338,8 +368,11 @@ h5 {
 }
 
 .card-projects .card {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: rgba(149,213,178,0.03); /* subtle green tint to match hero accent */
+  border: 1px solid rgba(149,213,178,0.06);
+  color: #fff;
 }
 
 .card-projects .card:hover {
@@ -521,11 +554,12 @@ h5 {
     font-size: 16px;
   }
 
-  /* Hero responsivo */
   h1 {
     font-size: 40px;
   }
-
+h2{
+    margin-bottom: 1px;
+}
   p {
     font-size: 18px;
   }
@@ -536,7 +570,8 @@ h5 {
     width: 95%;
     max-width: 450px;
     gap: 15px;
-    padding: 0 10px;
+    padding: 10px;
+    margin-top: 2px;
   }
 
   .skill-card {
@@ -545,10 +580,16 @@ h5 {
   }
 
   .card-body {
-    padding: 20px 15px;
+    padding: 30px 10px ;
+    height: auto;
+  }
+  h5{
+    font-size: 20px;
+  }
+  .card-text{
+    font-size: 15px;
   }
 
-  /* Ajustar animações em mobile - todos vêm de baixo */
   .skill-left,
   .skill-right {
     transform: translateY(50px);
@@ -556,6 +597,11 @@ h5 {
 
   .skill-card.animate {
     transform: translateY(0);
+  }
+  .card-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }
 

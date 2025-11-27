@@ -59,7 +59,6 @@ function passo() {
   }
 }
 
-// inicializa
 index = 0
 modo = 'digitando'
 atualizarHTML(palavras[0].texto, palavras[0].destaque, 0)
@@ -78,17 +77,16 @@ function createFallingLetters() {
     const randomLetter = letters[Math.floor(Math.random() * letters.length)]
     span.textContent = randomLetter
 
-    // Posição horizontal aleatória
     span.style.left = Math.random() * 100 + '%'
 
-    // Duração da animação aleatória (entre 8 e 15 segundos)
+
     const duration = Math.random() * 7 + 8
     span.style.animationDuration = duration + 's'
 
-    // Delay aleatório para início da animação
+
     span.style.animationDelay = Math.random() * 5 + 's'
 
-    // Tamanho de fonte aleatório
+  
     span.style.fontSize = Math.random() * 10 + 16 + 'px'
 
     container.appendChild(span)
