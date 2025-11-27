@@ -93,8 +93,8 @@ section {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* keep palette consistent with hero: dark background + subtle green accents */
-  color: #ffffff; /* readable text */
+ 
+  color: #ffffff; 
   background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(7,9,7,0.95) 100%);
 }
 .txt-hero {
@@ -196,14 +196,13 @@ p {
 }
 
 .icon {
-  position: relative; /* container for the label */
+  position: relative;
 }
 
 .icon p {
-  /* keep labels out of the document flow so they don't push icons */
   display: block;
   position: absolute;
-  top: 56px; /* just below the 45px icon */
+  top: 56px; 
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   white-space: nowrap;
@@ -299,7 +298,6 @@ p {
   transform: translateX(0);
 }
 
-/* Delays sequenciais */
 .skill-card[data-index='0'].animate {
   transition-delay: 0.2s;
 }
@@ -328,7 +326,6 @@ p {
 }
 .section-projects {
   padding: 80px 20px;
-  /* match hero: dark background so sections feel consistent */
   background-color: #000000;
   color: #fff;
 }
@@ -344,9 +341,10 @@ p {
 }
 h2 {
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 3rem;
   margin-bottom: 40px;
   font-weight: bold;
+  color: #95d5b2;
 }
 h5 {
   color: #fff;
@@ -368,15 +366,20 @@ h5 {
 }
 
 .card-projects .card {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
-  transition: transform 0.3s, box-shadow 0.3s;
-  background: rgba(149,213,178,0.03); /* subtle green tint to match hero accent */
-  border: 1px solid rgba(149,213,178,0.06);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 6px 28px rgba(255,255,255,0.12);
+  transition: transform 0.28s cubic-bezier(.2,.9,.2,1), box-shadow 0.28s ease, filter 0.28s ease;
+  background: rgba(149,213,178,0.03); 
+  border: 1px solid rgba(231, 231, 231, 0.06);
+   box-shadow: 0 36px 80px rgba(0,0,0,0.5), 0 12px 42px rgba(255,255,255,0.16);
+  filter: drop-shadow(0 8px 32px rgba(255,255,255,0.08));
   color: #fff;
+  position: relative;
+  z-index: 0;
 }
 
 .card-projects .card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-12px);
+  z-index: 5; 
 }
 .card-projects .project-card {
   width: 300px;
@@ -449,8 +452,10 @@ h5 {
 
 .card-projects .project-card .card-body {
   padding: 16px;
-  background-color: #2d6a4f;
+  background-color: #000;
+  border: none;
   color: #fff;
+  
 }
 @keyframes subir {
   0% {
@@ -549,7 +554,6 @@ h5 {
 }
 
 @media (max-width: 768px) {
-  /* Responsividade das letras caindo */
   .falling-letters span {
     font-size: 16px;
   }
@@ -563,8 +567,12 @@ h2{
   p {
     font-size: 18px;
   }
+  }
 
-  /* Habilidades responsivas */
+.section-projects{
+  height: auto;
+}
+
   .card-skils {
     grid-template-columns: 1fr;
     width: 95%;
@@ -602,11 +610,12 @@ h2{
     display: flex;
     flex-direction: column;
     align-items: center;
+    
   }
-}
+
 
 @media (max-width: 600px) {
-  /* Hero ainda menor */
+  
   h1 {
     font-size: 35px;
   }
@@ -615,12 +624,12 @@ h2{
     font-size: 16px;
   }
 
-  /* Letras caindo menores */
+
   .falling-letters span {
     font-size: 14px;
   }
 
-  /* Habilidades ainda mais responsivas */
+  
   .card-skils {
     width: 100%;
     max-width: 100%;
@@ -631,7 +640,7 @@ h2{
     max-width: 100%;
   }
 
-  /* Projetos */
+ 
   .section-projects {
     height: auto;
     min-height: 100vh;
@@ -651,7 +660,8 @@ h2{
   }
 
   .card-projects .project-card img {
-    height: 220px;
+    height: 210px;
+    object-fit: cover;
   }
 
   .btn-primary {
@@ -661,13 +671,11 @@ h2{
     color: white;
   }
 
-  /* Ícones menores */
   .icon-hero img {
     width: 40px;
     height: 40px;
   }
 
-  /* Ajustar animações de projetos em mobile - todos vêm de baixo */
   .project-left,
   .project-right,
   .project-center {
