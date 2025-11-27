@@ -1,190 +1,148 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfólio Vitor</title>
 
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="styles.css" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio Vitor</title>
 
-    <link rel="shortcut icon" href=".imgs/Simbolo.png" type="image/x-icon" />
-  </head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="styles.css" />
 
-  <body>
-    <div class="wrapper">
-      <!-- HERO -->
-      <section class="section fade-in">
-        <div class="txt-hero">
-          <h1>Vi<span>tor</span></h1>
-          <p id="cargo"></p>
-          <div class="icon-hero">
-            <button aria-expanded="false" aria-controls="icons-list" class="btn-hero">Redes de Contato</button>
-            <div id="icons-list" class="icons-list" aria-hidden="true">
+  <link rel="shortcut icon" href=".imgs/Simbolo.png" type="image/x-icon" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- HERO -->
+    <section class="section fade-in">
+      <div class="falling-letters"></div>
+      <div class="txt-hero">
+        <h1>Vi<span>tor</span></h1>
+        <p id="cargo"></p>
+        <div class="icon-hero">
+          <button aria-expanded="false" aria-controls="icons-list" class="btn-hero">Redes de Contato</button>
+          <div id="icons-list" class="icons-list" aria-hidden="true">
             <div class="icon gitHub">
-              <a href="#"
-                ><span><img src="./imgs/github-mono.png" alt="GitHub" /></span
-              ></a>
+              <a href="#"><span><img src="imgs/github-mono.png" alt="GitHub" /></span></a>
               <p>GitHub</p>
             </div>
 
             <div class="icon linkedin">
-              <a href="#"
-                ><span
-                  ><img src=".imgs/linkedin-mono.png" alt="LinkedIn" /></span
-              ></a>
+              <a href="#"><span><img src="imgs/linkedin-mono.png" alt="LinkedIn" /></span></a>
               <p>LinkedIn</p>
             </div>
 
             <div class="icon instagram">
-              <a href="#"
-                ><span
-                  ><img src=".imgs/instagram-mono.png" alt="Instagram" /></span
-              ></a>
+              <a href="#"><span><img src="imgs/instagram-mono.png" alt="Instagram" /></span></a>
               <p>Instagram</p>
             </div>
 
             <div class="icon whatsapp">
-              <a href="#"
-                ><span
-                  ><img src=".imgs/whatsapp-mono.png" alt="WhatsApp" /></span
-              ></a>
+              <a href="#"><span><img src="imgs/whatsapp-mono.png" alt="WhatsApp" /></span></a>
               <p>WhatsApp</p>
             </div>
             <div class="icon download">
-              <a href="#"
-                ><span
-                  ><img src=".imgs/download-icon.webp" alt="download" /></span
-              ></a>
+              <a href="#"><span><img src="imgs/download-icon.webp" alt="download" /></span></a>
               <p>Baixar Currículo</p>
             </div>
+          </div>
+        </div>
+      </div>
+      <a href="#skils">
+        <img src="imgs/seta.png" alt="seta" class="arrow-back" href="#skils" />
+      </a>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section class="section-skills fade-up" id="skils">
+      <div class="content">
+        <h2 class="section-title">Habilidades</h2>
+
+        <div class="card-skils">
+          <div class="card skill-card skill-left" data-index="0">
+            <div class="card-body">
+              <img src="imgs/html.svg" alt="HTML" />
+              <h5 class="card-title">HTML5</h5>
+              <p class="card-text">Estruturação semântica de páginas web.</p>
+            </div>
+          </div>
+
+          <div class="card skill-card skill-right" data-index="1">
+            <div class="card-body">
+              <img src="imgs/css.svg" alt="CSS" />
+              <h5 class="card-title">CSS3</h5>
+              <p class="card-text">Layouts responsivos e animações.</p>
+            </div>
+          </div>
+
+          <div class="card skill-card skill-left" data-index="2">
+            <div class="card-body">
+              <img src="imgs/js.svg" alt="JS" />
+              <h5 class="card-title">JavaScript</h5>
+              <p class="card-text">DOM, APIs, lógica e interações.</p>
+            </div>
+          </div>
+          <div class="card skill-card skill-right" data-index="3">
+            <div class="card-body">
+              <img src="imgs/icons8-banco-de-dados-50.png" alt="Banco de Dados" />
+              <h5 class="card-title">Banco de Dados</h5>
+              <p class="card-text">
+                Criação de tabelas, Integração com backend, PostgreSQL
+              </p>
             </div>
           </div>
         </div>
-        <a href="#skils">
-          <img
-            src="imgs/seta.png"
-            alt="seta"
-            class="arrow-back"
-            href="#skils"
-          />
-        </a>
-      </section>
+      </div>
+      <a href="#projects">
+        <img src="imgs/seta.png" alt="seta" class="arrow-back" />
+      </a>
+    </section>
 
-      <!-- HABILIDADES -->
-      <section class="section-skills fade-up" id="skils">
-        <div class="content">
-          <h2 class="section-title">Habilidades</h2>
+    <!-- PROJETOS -->
+    <section class="section-projects fade-up" id="projects">
+      <div class="content">
+        <h2 class="section-title">Projetos</h2>
 
-          <div class="card-skils">
-            <div class="card skill-card">
-              <div class="card-body">
-                <img src=".imgs/html.svg" alt="HTML" />
-                <h5 class="card-title">HTML5</h5>
-                <p class="card-text">Estruturação semântica de páginas web.</p>
-              </div>
+        <div class="card-projects">
+          <div class="card project-card project-left" data-index="0">
+            <img src="imgs/Drop-Point.png" alt="Drop-Point" />
+            <div class="card-body">
+              <h5 class="card-title">Drop Point</h5>
+              <p class="card-text">Site voltado a entregas de encomendas</p>
+              <a href="#" class="btn btn-primary"
+                onclick="window.open('https://junimmotoboy.github.io/Drop_Front/','_blank')">Ver Projeto</a>
             </div>
+          </div>
 
-            <div class="card skill-card">
-              <div class="card-body">
-                <img src=".imgs/css.svg" alt="CSS" />
-                <h5 class="card-title">CSS3</h5>
-                <p class="card-text">Layouts responsivos e animações.</p>
-              </div>
+          <div class="card project-card project-center" data-index="1">
+            <img class="monfardini" src="imgs/Monfardini.png" alt="Projeto 2" />
+            <div class="card-body">
+              <h5 class="card-title">Monfardini</h5>
+              <p class="card-text">
+                Agenda digital para marcação de horarios
+              </p>
+              <a href="#" class="btn btn-primary"
+                onclick="window.open('https://junimmotoboy.github.io/Monfardini/login.html','_blank')">Ver Projeto</a>
             </div>
+          </div>
 
-            <div class="card skill-card">
-              <div class="card-body">
-                <img src=".imgs/js.svg" alt="JS" />
-                <h5 class="card-title">JavaScript</h5>
-                <p class="card-text">DOM, APIs, lógica e interações.</p>
-              </div>
-            </div>
-            <div class="card skill-card">
-              <div class="card-body">
-                <img
-                  src=".imgs/icons8-banco-de-dados-50.png"
-                  alt="Banco de Dados"
-                />
-                <h5 class="card-title">Banco de Dados</h5>
-                <p class="card-text">
-                  Criação de tabelas, Integração com backend, PostgreSQL
-                </p>
-              </div>
+          <div class="card project-card project-right" data-index="2">
+            <img class="loteamento" src="imgs/loteamento.png" alt="Projeto 3" />
+            <div class="card-body">
+              <h5 class="card-title">Loteamento</h5>
+              <p class="card-text">
+                PRojeto totalmente voltado para vendas de lotes
+              </p>
+              <a href="#" class="btn btn-primary"
+                onclick="window.open('https://junimmotoboy.github.io/Loteamento/','_blank')">Ver Projeto</a>
             </div>
           </div>
         </div>
-        <a href="#projects">
-          <img src="imgs/seta.png" alt="seta" class="arrow-back" />
-        </a>
-      </section>
+      </div>
+    </section>
+  </div>
+  <script src="scripts.js"></script>
+</body>
 
-      <!-- PROJETOS -->
-      <section class="section-projects fade-up" id="projects">
-        <div class="content">
-          <h2 class="section-title">Projetos</h2>
-
-          <div class="card-projects">
-            <div class="card project-card">
-              <img src="imgs/Drop-Point.png" alt="Drop-Point" />
-              <div class="card-body">
-                <h5 class="card-title">Drop Point</h5>
-                <p class="card-text">Site voltado a entregas de encomendas</p>
-                <a
-                  href="#"
-                  class="btn btn-primary"
-                  onclick="window.open('https://junimmotoboy.github.io/Drop_Front/','_blank')"
-                  >Ver Projeto</a
-                >
-              </div>
-            </div>
-
-            <div class="card project-card">
-              <img
-                class="monfardini"
-                src="imgs/Monfardini.png"
-                alt="Projeto 2"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Monfardini</h5>
-                <p class="card-text">
-                  Agenda digital para marcação de horarios
-                </p>
-                <a
-                  href="#"
-                  class="btn btn-primary"
-                  onclick="window.open('https://junimmotoboy.github.io/Monfardini/login.html','_blank')"
-                  >Ver Projeto</a
-                >
-              </div>
-            </div>
-
-            <div class="card project-card">
-              <img
-                class="loteamento"
-                src="imgs/loteamento.png"
-                alt="Projeto 3"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Loteamento</h5>
-                <p class="card-text">
-                  PRojeto totalmente voltado para vendas de lotes
-                </p>
-                <a
-                  href="#"
-                  class="btn btn-primary"
-                  onclick="window.open('https://junimmotoboy.github.io/Loteamento/','_blank')"
-                  >Ver Projeto</a
-                >
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
-    <script src="scripts.js"></script>
-  </body>
 </html>
