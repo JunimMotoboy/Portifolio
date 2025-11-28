@@ -208,4 +208,102 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!iconsList.classList.contains('open')) return
     if (!e.target.closest('.icon-hero')) closeIcons()
   })
+
+  // --- Toast helper ---
+  const toastContainer = document.getElementById('toast-container')
+
+  function showToast(message, type = 'info', duration = 3000) {
+    if (!toastContainer) return null
+
+    const toast = document.createElement('div')
+    toast.className = `toast ${type}`
+    toast.setAttribute('role', 'status')
+    toast.setAttribute('aria-live', 'polite')
+
+    // spinner only for info (in progress)
+    const spinner = document.createElement('div')
+    spinner.className = 'spinner'
+
+    const msg = document.createElement('div')
+    msg.className = 'msg'
+    msg.textContent = message
+
+    if (type === 'info') {
+      toast.appendChild(spinner)
+    }
+    toast.appendChild(msg)
+
+    toastContainer.appendChild(toast)
+
+    // ensure animation trigger
+    requestAnimationFrame(() => toast.classList.add('show'))
+
+    let timeoutId = null
+    if (duration > 0) {
+      timeoutId = setTimeout(() => closeToast(toast), duration)
+    }
+
+    // return controls for caller if they want to close earlier
+    return {
+      element: toast,
+      close: () => {
+        clearTimeout(timeoutId)
+        closeToast(toast)
+      },
+    }
+  }
+
+  function closeToast(toast) {
+    if (!toast) return
+    toast.classList.remove('show')
+    // wait for transition then remove
+    setTimeout(() => {
+      toast.remove()
+    }, 220)
+  }
+
+  // --- Download do currículo ---
+  // Botão na hero-section com id="download-cv"
+  const downloadLink = document.getElementById('download-cv')
+  if (downloadLink) {
+    downloadLink.addEventListener('click', async (e) => {
+      // Evita comportamento padrão para usar fetch e garantir download
+      e.preventDefault()
+
+      const url = downloadLink.getAttribute('href')
+      if (!url) return
+
+      // exibe toast de progresso (sem fechar automaticamente)
+      const progressToast = showToast('Iniciando download...', 'info', 0)
+
+      try {
+        const response = await fetch(url)
+        if (!response.ok) throw new Error('Arquivo não encontrado')
+
+        const blob = await response.blob()
+        const blobUrl = URL.createObjectURL(blob)
+
+        const a = document.createElement('a')
+        a.href = blobUrl
+        // nome de arquivo sugerido para o download (nome real fornecido pelo usuário)
+        a.download = 'Paulo Vitor Silva Santana.pdf'
+        document.body.appendChild(a)
+        a.click()
+        a.remove()
+
+        // libera memória
+        URL.revokeObjectURL(blobUrl)
+        // fechar toast de progresso e mostrar sucesso
+        if (progressToast) progressToast.close()
+        showToast('Download concluído — arquivo salvo', 'success', 3000)
+      } catch (err) {
+        // fechar toast de progresso
+        if (progressToast) progressToast.close()
+        console.error('[download] erro ao baixar currículo:', err)
+        showToast('Erro ao baixar o arquivo', 'error', 4500)
+        // fallback: abrir em nova aba (ou o navegador fará o download se possível)
+        window.open(url, '_blank')
+      }
+    })
+  }
 })
